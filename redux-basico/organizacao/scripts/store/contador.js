@@ -26,7 +26,7 @@ const reducer = immer.produce((state, action) => {
     // Caso o valor da propriedade type seja igual a constante INCREMENTAR, irá executar o bloco de código abaixo.
     case INCREMENTAR:
       return state + 1; // Retorna o estado atual mais 1.
-    // Caso o valor da propriedade type seja igual a string "REDUZIR", será executado o bloco de código abaixo.
+    // Caso o valor da propriedade type seja igual a constante REDUZIR, será executado o bloco de código abaixo.
     case REDUZIR:
       return state - 1; // Retorna o estado atual menos 1.
     // Caso o valor da propriedade type não corresponda a nenhum dos valores acima, será executado o bloco de código abaixo.
