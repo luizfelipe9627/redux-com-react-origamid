@@ -34,7 +34,7 @@ function reducer(state = initialState, action) {
   - Podemos utilizar um middleware para contornar a obrigação de sempre enviarmos objetos via dispatch. No middleware podemos identificar a action, e verificar se a mesma é uma função. Caso ela seja uma função podemos ativá-la.
 */
 
-// Criado uma função middleware chamada thunk, que recebe três parâmetros, store, next e action.
+// Criado uma função middleware chamada thunk, que recebe três parâmetros, o store que é a store da aplicação, next que é a função que irá chamar o próximo middleware, e action que é a ação que será executada para alterar o estado da aplicação/store.
 const thunk = (store) => (next) => (action) => {
   // Se o tipo da ação for uma função, executa o bloco de if abaixo.
   if (typeof action === "function") {
