@@ -1,6 +1,6 @@
 import store from "./store/configureStore.js"; // Importa a store da aplicação do arquivo configureStore.js.
 import { tokenFetch } from "./store/token.js"; // Importa a função tokenFetch do arquivo token.js.;
-import { userFetch } from "./store/user.js";
+import { userFetch } from "./store/user.js"; // Importa a função userFetch do arquivo user.js.
 
 async function login(user) {
   let state = store.getState(); // Está criando uma constante chamada state que recebe o estado atual da store.
