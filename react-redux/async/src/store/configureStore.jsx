@@ -1,11 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import countSlice from "./countSlice.js";
-import modal from "./modal.js";
-import login from "./login.js";
+import modal from "./modal";
+import login from "./login";
+import count from "./count";
 
 // O combineReducers é responsável por combinar os reducers e armazenar em uma constante chamada reducer.
 const reducer = combineReducers({
-  countSlice,
+  count,
   modal,
   login,
 });

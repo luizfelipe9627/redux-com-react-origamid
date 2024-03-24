@@ -1,13 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//* > createSlice
-/*
-  - Aqui está a mágica do toolkit. O createSlice irá criar o reducer e as ações utilizando uma única função. Ele também irá definir um namespace para as ações e configura automaticamente o immer, permitindo assim a mutação do estado dentro do reducer.
-*/
-
 // O createSlice é responsável por criar um slice. O slice é um conjunto de ações e reducers que são responsáveis por alterar o estado da store.
 const slice = createSlice({
-  name: "countSlice", // O nome do slice.
+  name: "count", // O nome do slice.
   // Como estado inicial da store, está sendo criado um objeto com a propriedade total.
   initialState: 0, // Define o estado inicial da store como 0.
   // O reducer do slice.

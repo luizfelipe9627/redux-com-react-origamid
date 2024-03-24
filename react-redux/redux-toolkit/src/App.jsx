@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementar, reduzir } from "./store/countSlice.js";
-import { abrir, fechar } from "./store/modal.js";
+import { incrementar, reduzir } from "./store/countSlice.jsx";
+import { abrir, fechar } from "./store/modal.jsx";
 
 const App = () => {
   const { countSlice, modal } = useSelector((state) => state); // O useSelector é responsável por acessar o estado da store. Recebe o estado da store como parâmetro e retorna o estado da store.

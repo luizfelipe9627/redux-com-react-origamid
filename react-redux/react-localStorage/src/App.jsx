@@ -1,15 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "./store/login.jsx";
+import { useDispatch } from "react-redux";
+import { autoLogin, login } from "./store/login.jsx";
+import { somar } from "./store/count.jsx";
+import { useSelector } from "react-redux";
 
 const App = () => {
   // Criado um useState que recebe um array com dois elementos, o primeiro elemento é o estado, que recebe uma string vazia como valor inicial, e o segundo elemento é a função atualizadora, que será responsável por alterar o estado username.
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  const { data } = useSelector((state) => state.login.user); // Está desestruturando a propriedade data do retorno do estado e está executando o hook useSelector que é responsável por acessar o estado da store, recebe como parâmetro uma função que retorna o estado da store e retorna o estado que desejamos acessar, no caso o user.
+
   const dispatch = useDispatch(); // Está executando o hook useDispatch que é responsável por acessar o dispatch da store que dispara as ações, e armazena na constante dispatch.
 
-  const { data } = useSelector((state) => state.login.user); // Está executando o hook useSelector que recebe como parâmetro uma função que acessa o estado da store, e retorna o estado da propriedade data do user e armazena na constante data.
+  // O useEffect executa toda vez que o dispatch é modificado, ou seja sempre que uma ação for acionada o useEffect executa o bloco de código dentro dele.
+  React.useEffect(() => {
+    dispatch(autoLogin()); // Dispara uma ação passando como parâmetro e executando a função autoLogin.
+  }, [dispatch]);
 
   // Criado uma função chamada handleFetchToken que recebe um evento como parâmetro.
   function handleFetchToken(event) {
@@ -44,13 +51,14 @@ const App = () => {
           // A cada alteração no input, a função anônima é chamada, e recebe como parâmetro a desestruturação do evento target(acessa o elemento que disparou o evento) e a função atualizadora setPassword é chamada, passando como parâmetro o valor digitado no input.
           onChange={({ target }) => setPassword(target.value)}
         />
-
         <button>Enviar</button>
-
-        {/* Se data for verdadeiro/existir é renderizado o parágrafo com a informação do usuário, caso contrário é renderizado um parágrafo vazio. */}
-        <p>{data?.nome}</p>
-        <p>{data?.email}</p>
       </form>
+
+      {/* Se data for verdadeiro/existir é renderizado o parágrafo com o email do usuário, caso contrário é renderizado um parágrafo vazio. */}
+      <p>{data?.email}</p>
+
+      {/* Criado um botão que ao ser clicado, dispara a ação somar fazendo com que o estado da store seja incrementado em 1. */}
+      <button onClick={() => dispatch(somar(5))}>Somar</button>
     </div>
   );
 };

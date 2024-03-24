@@ -1,6 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "./store/login.jsx";
+import { somar } from "./store/count.jsx";
 
 const App = () => {
   // Criado um useState que recebe um array com dois elementos, o primeiro elemento é o estado, que recebe uma string vazia como valor inicial, e o segundo elemento é a função atualizadora, que será responsável por alterar o estado username.
@@ -8,8 +9,6 @@ const App = () => {
   const [password, setPassword] = React.useState("");
 
   const dispatch = useDispatch(); // Está executando o hook useDispatch que é responsável por acessar o dispatch da store que dispara as ações, e armazena na constante dispatch.
-
-  const { data } = useSelector((state) => state.login.user); // Está executando o hook useSelector que recebe como parâmetro uma função que acessa o estado da store, e retorna o estado da propriedade data do user e armazena na constante data.
 
   // Criado uma função chamada handleFetchToken que recebe um evento como parâmetro.
   function handleFetchToken(event) {
@@ -44,13 +43,11 @@ const App = () => {
           // A cada alteração no input, a função anônima é chamada, e recebe como parâmetro a desestruturação do evento target(acessa o elemento que disparou o evento) e a função atualizadora setPassword é chamada, passando como parâmetro o valor digitado no input.
           onChange={({ target }) => setPassword(target.value)}
         />
-
         <button>Enviar</button>
-
-        {/* Se data for verdadeiro/existir é renderizado o parágrafo com a informação do usuário, caso contrário é renderizado um parágrafo vazio. */}
-        <p>{data?.nome}</p>
-        <p>{data?.email}</p>
       </form>
+
+      {/* Criado um botão que ao ser clicado, dispara a ação somar fazendo com que o estado da store seja incrementado em 1. */}
+      <button onClick={() => dispatch(somar(5))}>Somar</button>
     </div>
   );
 };

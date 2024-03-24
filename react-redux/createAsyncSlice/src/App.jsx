@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "./store/login.jsx";
 
 const App = () => {
@@ -8,8 +8,6 @@ const App = () => {
   const [password, setPassword] = React.useState("");
 
   const dispatch = useDispatch(); // Está executando o hook useDispatch que é responsável por acessar o dispatch da store que dispara as ações, e armazena na constante dispatch.
-
-  const { data } = useSelector((state) => state.login.user); // Está executando o hook useSelector que recebe como parâmetro uma função que acessa o estado da store, e retorna o estado da propriedade data do user e armazena na constante data.
 
   // Criado uma função chamada handleFetchToken que recebe um evento como parâmetro.
   function handleFetchToken(event) {
@@ -46,10 +44,6 @@ const App = () => {
         />
 
         <button>Enviar</button>
-
-        {/* Se data for verdadeiro/existir é renderizado o parágrafo com a informação do usuário, caso contrário é renderizado um parágrafo vazio. */}
-        <p>{data?.nome}</p>
-        <p>{data?.email}</p>
       </form>
     </div>
   );

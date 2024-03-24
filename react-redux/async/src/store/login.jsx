@@ -37,6 +37,11 @@ const slice = createSlice({
       state.token.error = action.payload; // Altera o estado da propriedade error do token para o payload passado como parâmetro na ação.
     },
 
+    //* > Múltiplos fetch
+    /*
+      - A lógica é a mesma para diferentes requisições, modificando apenas os argumentos da função fetch.
+    */
+
     // Criado a ação fetchUserStarted que recebe o estado como parâmetro, responsável por indicar que a requisição foi iniciada.
     fetchUserStarted(state) {
       state.user.loading = true; // Altera o estado da propriedade loading do user para true.
