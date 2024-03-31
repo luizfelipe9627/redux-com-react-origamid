@@ -20,7 +20,7 @@ const token = createAsyncSlice({
       reducer(state, action) {
         state.data = action.payload; // Define o estado de data com o que foi retornado pela payload.
         state.loading = false; // Define o estado de loading como false.
-        state.error = action.payload; // Define o estado de error com o que foi retornado pela payload.
+        state.error = null; // Define o estado de error como null.
       },
 
       // O prepare é uma função responsável por preparar a ação antes de ser enviada para o reducer, ele recebe como parâmetro o payload e retorna um objeto com o payload e a propriedade meta com o valor somar.

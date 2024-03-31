@@ -1,0 +1,28 @@
+table,
+input,
+label {
+  font-size: 1.2rem;
+  font-family: monospace;
+  margin-bottom: 0.5rem;
+}
+
+tbody th {
+  font-weight: 400;
+}
+
+td {
+  padding: 0.3rem;
+}
+
+th {
+  padding-left: 1rem;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+input[type="number"] {
+  display: block;
+}

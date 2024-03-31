@@ -32,14 +32,14 @@ const createAsyncSlice = (config) => {
       fetchSuccess(state, action) {
         state.data = action.payload; // Define o estado de data com o que foi retornado pela payload.
         state.loading = false; // Define o estado de loading como false.
-        state.error = action.payload; // Define o estado de error com o que foi retornado pela payload.
+        state.error = null; // Define o estado de error como null.
       },
 
       // Criado a ação fetchError que recebe o estado e a ação como parâmetro, responsável por indicar que a requisição falhou.
       fetchError(state, action) {
         state.loading = false; // Define o estado de loading como false.
         state.data = null; // Define o estado de data como null.
-        state.error = action.payload; // Define o estado de error com o que foi retornado pela payload.
+        state.error = null; // Define o estado de error como null.
       },
       ...config.reducers, // Está desestruturando o reducers do config, caso seja passado um novo reducers, ele será mesclado com o reducers padrão.
     },
