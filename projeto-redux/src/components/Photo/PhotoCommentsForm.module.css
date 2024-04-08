@@ -1,0 +1,46 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  margin: 1rem;
+}
+
+.single.form {
+  margin: 1rem 0;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #333;
+  font-size: 1rem;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.button:focus,
+.button:hover {
+  outline: none;
+}
+
+.button:focus svg path,
+.button:hover svg path {
+  fill: #fea;
+  stroke: #fb1;
+}
+
+.button:focus svg g,
+.button:hover svg g {
+  animation: latir .6s infinite;
+}
+
+@keyframes latir {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

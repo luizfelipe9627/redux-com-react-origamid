@@ -1,0 +1,47 @@
+/* O nth-child está selecionando o segundo elemento da classe photo */
+.photo:nth-child(2) {
+  grid-column: 2 / 4;
+  grid-row: span 2;
+}
+
+@media (max-width: 640px) {
+  .photo:nth-child(2) {
+    grid-column: initial;
+    grid-row: initial;
+  }
+}
+
+.photo {
+  display: grid;
+  border-radius: .2rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo > div {
+  grid-area: 1 / 1;
+}
+
+.views {
+  justify-content: center;
+  align-items: center;
+  grid-area: 1 / 1;
+  background-color: rgba(0, 0, 0, .3);
+  color: #FFF;
+  font-size: 1rem;
+  display: none;
+  transition: .3s;
+}
+
+.views::before {
+  width: 16px;
+  height: 10px;
+  content: "";
+  display: inline-block;
+  margin-right: .25rem;
+  background-image: url("../../assets/svg/visualizacao.svg");
+}
+
+.photo:hover .views {
+  display: flex;
+}

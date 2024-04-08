@@ -1,0 +1,138 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.nav a,
+.nav button {
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border-radius: .2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: .1s;
+  cursor: pointer;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav button:hover,
+.nav button:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #eee;
+  border-color: #333;
+  outline: none;
+}
+
+/* O :global está sendo usado para estilizar o link ativo da página */
+.nav a:global(.active) {
+  background-color: #FFF;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #FB1;
+}
+
+/* O :global está sendo usado para estilizar o link ativo da página, e o * para estilizar todos os filhos do svg */
+.nav a:global(.active) svg>* {
+  fill: #FB1;
+}
+
+.mobileButton {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: #eee;
+  border-radius: .2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: .1s;
+  cursor: pointer;
+}
+
+.mobileButton::after {
+  content: '';
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  /* O currentColor pega a cor do elemento, ou seja, a cor do mobileButton */
+  background: currentColor;
+  border-radius: 2px;
+  /* O box-shadow cria um efeito de duas linhas, uma em cima e outra em baixo */
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: .2s;
+}
+
+.mobileButton:hover,
+.mobileButton:focus,
+.mobileButtonActive {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+  outline: none;
+  color: #fb1;
+}
+
+.mobileButtonActive::after {
+  width: 4px;
+  height: 4px;
+  transform: rotate(90deg);
+  /* O box-shadow cria um efeito de duas bolinhas, uma em cima e outra em baixo, mas que por conta do rotate, ficam na lateral */
+  box-shadow: 0 8px currentColor, 0 -8 currentColor;
+}
+
+.navMobile {
+  display: block;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  padding: 0 1rem;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  border-radius: .2rem;
+  transform: translateX(-10);
+  opacity: 0;
+  /* Tira o pointer-events para que o usuário não consiga clicar no menu enquanto ele estiver fechado */
+  pointer-events: none;
+}
+
+.navMobileActive {
+  transition: .3s;
+  /* O initial é para que o transform e volte ao valor inicial ou seja, não tenha transformação */
+  transform: initial;
+  opacity: 1;
+  z-index: 100;
+  /* Coloca o pointer-events para que o usuário consiga clicar no menu enquanto ele estiver aberto */
+  pointer-events: initial;
+}
+
+.navMobile a,
+.navMobile button {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  border-radius: .2rem;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: .5rem 0;
+  cursor: pointer;
+}
+
+.navMobile button {
+  border-bottom: none;
+}
+
+.navMobile svg {
+  margin-right: .5rem;
+}
+
+.navMobile a:hover svg>*,
+.navMobile button:hover svg>* {
+  fill: #FB1;
+}
